@@ -1,0 +1,106 @@
+import java.util.Random;
+
+public class StudentAccessValidator {
+
+    public static void main(String[] args) {
+        System.out.println(isValidStudentId("V123456"));
+        System.out.println(isValidStudentId("v123456"));
+        System.out.println(isValidPassword("Vanier20"));
+        System.out.println(isValidPassword("Vanier"));
+        System.out.println(generateAccessCode());
+        System.out.println(verifyAccessCode("ABC", "abc"));
+        System.out.println(verifyAccessCode("ABC", "ABC"));
+        System.out.println(verifyAccessCode("ABC", "ZYX"));
+        System.out.println(verifyAccessCode("ZYX", "ZYX"));
+        System.out.println(verifyCredentials("12345", "12345", "password123", "password123", "ABC789", "ABC789"
+        ));
+    }
+
+    public static boolean isValidStudentId(String id) {
+        boolean oneUpperCase = false;
+        boolean sixDigit = false;
+
+        if (id.startsWith("V"))
+            for (int i = 0; i < id.length(); i++) {
+                if (Character.isUpperCase(id.charAt(i)))
+                    oneUpperCase = true;
+                else if (Character.isDigit(id.charAt(i)))
+                    sixDigit = true;
+            }
+        return oneUpperCase && sixDigit;
+    }
+
+    public static boolean isValidPassword(String password) {
+        boolean upper = false;
+        boolean lower = false;
+        boolean digit = false;
+
+        if (password.length() < 8)
+            return false;
+
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isUpperCase(password.charAt(i)))
+                upper = true;
+            else if (Character.isLowerCase(password.charAt(i)))
+                lower = true;
+            else if (Character.isDigit(password.charAt(i)))
+                digit = true;
+        }
+        return upper && lower && digit;
+    }
+
+    public static String generateAccessCode() {
+        String allowed = "ABCDE";
+        String code = "";
+        int length = 5;
+        Random rand = new Random();
+
+        for (int i = 0; i < allowed.length(); i++) {
+            int index = rand.nextInt(length);
+            code += allowed.charAt(index);
+
+        }
+        return code;
+
+    }
+
+
+    public static boolean isValidAccess(String id, String password) {
+
+        if (isValidStudentId(id) && isValidPassword(password)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean verifyAccessCode(String generatedCode, String enteredCode) {
+        if (generatedCode.equals(enteredCode)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean verifyCredentials(String studentID, String enteredID, String password, String enteredPassword, String generatedCode, String enteredCode) {
+
+        boolean id = false;
+        boolean pass = false;
+        boolean code = false;
+        if (studentID.equals(enteredID) && password.equals(enteredPassword) && (generatedCode.equals(enteredCode))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+ /*
+ Part J
+ 1. No input
+ 2. Output is a randomly generated String
+ 3. Generate random Strings
+ 4. I dont know
+ 5. Add more characters like numbers or special characters such as the $
+ 6. The length of the allowed characters is less than the length needed for the code
+  */
+
