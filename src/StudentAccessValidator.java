@@ -14,18 +14,18 @@ public class StudentAccessValidator {
     }
 
     public static boolean isValidStudentId(String id) {
-        boolean oneUpperCase = false;
         boolean sixDigit = false;
+        int count = 0;
 
         if (id.startsWith("V"))
             for (int i = 0; i < id.length(); i++) {
-                if (Character.isUpperCase(id.charAt(i)))
-                    oneUpperCase = true;
-                else if (Character.isDigit(id.charAt(i)))
-                    sixDigit = true;
+                if (Character.isDigit(id.charAt(i)))
+                    count++;
             }
-        return oneUpperCase && sixDigit;
-    }
+          return count == 6;
+        }
+
+
 
     public static boolean isValidPassword(String password) {
         boolean upper = false;
@@ -82,6 +82,8 @@ public class StudentAccessValidator {
         }
     }
 }
+
+
 
  /*
  Part J
