@@ -10,7 +10,6 @@ A5: Yes VANIER2026 would work.if int i < than the length of VANIER2026,it will s
 it is uppercase so upper will be true. lower will the false. digit will be true.so the system will print upper and digit. lower will remain will be null.
 So it will be true, false, true.
 A6:Yes it would work. It the same process as the other thing but upper will return false and digit true.
-
  */
 
 public static void main(String[] args) {
@@ -25,8 +24,6 @@ public static void main(String[] args) {
 }
 
 // Part B
-
-
 public static int countDigits (String text) {
     int count = 0;
 
@@ -40,8 +37,6 @@ public static int countDigits (String text) {
 }
 
 // Part C
-
-
 public static boolean isValidPassword (String password){
     boolean isUpper = false;
     boolean isLower = false;
@@ -78,8 +73,6 @@ public static boolean isValidPassword (String password){
   */
 
 //Part D fix
-
-
 public static int CountUpperCase(String text) {
     int count = 0;
 

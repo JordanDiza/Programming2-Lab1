@@ -1,5 +1,6 @@
 import java.util.Random;
 
+// Part H
 public class StudentAccessValidator {
 
     public static void main(String[] args) {
@@ -8,9 +9,7 @@ public class StudentAccessValidator {
         System.out.println(isValidPassword("Vanier20"));
         System.out.println(isValidPassword("Vanier"));
         System.out.println(generateAccessCode());
-        System.out.println(verifyAccessCode("ABC", "abc"));
-        System.out.println(verifyAccessCode("ABC", "ABC"));
-        System.out.println(verifyCredentials("12345", "12345", "password123", "password123", "ABC789", "ABC789"
+        System.out.println(verifyAccessCode("12345", "12345", "password123", "password123", "ABC789", "ABC789"
         ));
     }
 
@@ -70,15 +69,8 @@ public class StudentAccessValidator {
         return false;
     }
 
-    public static boolean verifyAccessCode(String generatedCode, String enteredCode) {
-        if (generatedCode.equals(enteredCode)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean verifyCredentials(String studentID, String enteredID, String password, String enteredPassword, String generatedCode, String enteredCode) {
+    //Part I
+    public static boolean verifyAccessCode(String studentID, String enteredID, String password, String enteredPassword, String generatedCode, String enteredCode) {
 
         boolean id = false;
         boolean pass = false;
