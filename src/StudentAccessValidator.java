@@ -10,8 +10,6 @@ public class StudentAccessValidator {
         System.out.println(generateAccessCode());
         System.out.println(verifyAccessCode("ABC", "abc"));
         System.out.println(verifyAccessCode("ABC", "ABC"));
-        System.out.println(verifyAccessCode("ABC", "ZYX"));
-        System.out.println(verifyAccessCode("ZYX", "ZYX"));
         System.out.println(verifyCredentials("12345", "12345", "password123", "password123", "ABC789", "ABC789"
         ));
     }
@@ -50,7 +48,7 @@ public class StudentAccessValidator {
     }
 
     public static String generateAccessCode() {
-        String allowed = "ABCDE";
+        String allowed = "ABC12";
         String code = "";
         int length = 5;
         Random rand = new Random();
@@ -63,7 +61,6 @@ public class StudentAccessValidator {
         return code;
 
     }
-
 
     public static boolean isValidAccess(String id, String password) {
 
